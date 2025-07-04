@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/iniciar_sesion.css">
+</head>
+<body style="background-color: rgb(3, 5, 14);">
+    <div class="box">
+        
+        <div id="centro">
+            <header id="titulo">Iniciar Sesion</header>
+        </div>
+        <br>
+        <form id="container" class="container">
+            <p>Ingrese Su Correo Electronico</p>
+            <input type="email" id="email" onkeyup="verificar()" name="correo_electronico">
+            
+            <p class="regis" id="warning"></p>
+            
+            <p class="contras">Ingrese Su Contraseña</p> 
+            <input id="password" class="contra" type="password" name="contraseña">
+            
+            <p class="contraseña" id="warning2"></p>
+            <br>
+                <button id="boton" type="submit">Enviar</button>
+            <br>
+            <button id="boton2"><a href="Registro.html">¿no tienes una cuenta?, Registrese</a></button>
+            <br>
+            <button id="volver"><a href="index.html">Volver al Inicio</a></button>
+            
+        </form>
+    </div>
+    <script src="js/script.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/sesiones.js" type="module"></script>
+</body>
+</html>

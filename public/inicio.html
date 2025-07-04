@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="style/inicio_pagina.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/index.js"></script>    
+</head>
+<body>
+    <header>
+        <img id="logo" src="imagenes/logo.png" alt="">
+        <h1>EstudIA</h1>
+        
+        <div id="content" class="conteiner2, no_click">
+            
+            <p>
+                Musica
+            </p>
+            <div>
+                Ruidos Relajantes
+            </div>
+            <div>
+                Iniciar Sesión Con Otra Cuenta
+            </div> 
+            <div>
+                sobre nosotros
+            </div>
+        </div>
+    </header>
+    <button id="boton" onclick="btn()">
+            =
+        </button>
+    
+        
+        <main>
+            <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+            <script>
+            window.botpress.on("webchat:ready", (error) => {
+      window.botpress.open();
+    });
+            </script>
+<style>
+    .bpFab {
+        display: none;
+    }
+    
+    .bpWebchat {
+        
+        top: 13% !important;
+        right: 25% !important;
+        width:50% !important;
+        height:70% !important;
+        
+    } 
+    .bpHeaderContentActionsContainer :nth-child(2) {
+        display: none;
+    }
+    </style>
+
+<script src="https://files.bpcontent.cloud/2024/11/11/19/20241111191001-PNEKWHMZ.js"></script>
+
+</main>
+
+<section id="grados">
+    <a  href="../plan_de_estudio/1año.html?año=1er">1°año</a>
+    <a  href="../plan_de_estudio/2año.html?año=2do">2°año</a>
+    <a  href="../plan_de_estudio/3año.html" >3°año</a>
+    <a  href="../plan_de_estudio/4año.html" >4°año</a>
+    <a  href="../plan_de_estudio/5año.html" >5°año</a>
+    <a  href="../plan_de_estudio/6año.html" >6°año</a>
+    <button onclick="coso()">Consejo</button>
+</section>
+
+<script src="js/script.js"></script>
+
+    
+</body>
+</html>

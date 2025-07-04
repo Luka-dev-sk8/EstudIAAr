@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/iniciar_sesion.css">
+</head>
+<body style="background-color: rgb(3, 5, 14);">
+    <div class="box">
+        <header id="centro">
+            <h1 id="titulo">Registrese</h1>
+        </header>
+
+        <form id="container2"  class="container" >
+            <p>Ingrese un nombre</p>
+
+            <input type="text" id="nombre" name="nombre">
+            <p id="warning" class="usu">el nombre no es valido</p>
+
+            <p>Ingrese Un Correo Electronico</p>
+             
+            <input id="email" type="email" name="correo_electronico"  onkeyup="verificar()">
+            <p id="warning2" class="regis">el email no es valido</p>
+            
+            <p>Ingrese Una Nueva Contraseña</p> 
+
+            <input id="password" type="password" name="contraseña">
+            <p id="warning3" class="contraseña">la Contraseña no es valido</p>
+            <br>
+            <button  id="boton" type="submit" >Enviar</button>
+            <br>
+            <button id="boton2"><a href="InicioSe.html">¿Ya tienes una Cuenta?, Inicie sesión</a></button>
+            <br>
+            <button id="volver"><a href="index.html">Volver al Inicio</a></button>  
+            
+        </form>
+        <p class="no_click" id="warning"></p>
+        
+    </div>
+    <script src="js/script.js"></script>
+    <script src="./js/registro.js" type="module"></script>
+    </body>
+</html>
