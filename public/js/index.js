@@ -2,7 +2,7 @@ const btn = document.querySelector('#boton');
 const contenido = document.querySelector('#content');
 
 btn.addEventListener('click', () => {
-    contenido.classList.add('no_click');
+    contenido.classList.add('.no_click');
 
 });
 
