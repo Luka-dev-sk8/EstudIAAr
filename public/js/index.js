@@ -2,9 +2,10 @@ const btn = document.querySelector('#boton');
 const contenido = document.querySelector('#content');
 
 btn.addEventListener('click', () => {
-    contenido.classList.add('.no_click');
+    contenido.classList.toggle('no_click');
 
-});
+    
+})
 
 function coso(){
     var num = Math.floor(Math.random() * 6) + 1;
@@ -32,7 +33,7 @@ function coso(){
         }
     }
 }
-// Como funcion coso? encima si parametros y el SOLID hermano?
+
 
 async function obtenerMaterias() {
     const urlParams = new URLSearchParams(window.location.search);
