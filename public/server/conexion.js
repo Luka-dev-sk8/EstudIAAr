@@ -2,24 +2,31 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import sql from 'mssql';
+import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+dotenv.config({ path: `${__dirname}/../.env` });
 
 const app = express();
-const port = 3000;
-
-const config = {
-    user: 'robertoss',//usuario de el gestor de la base de datos
-    password: 'holamundo123', //su contraseña
-    server: 'localhost', //el servidor es siempre local en este caso
-    database: 'estudIAR',// el nombre de la base de datos
-    options: {
-        encrypt: true,
-        trustServerCertificate: true
-    }
-};
 
 app.use(bodyParser.json());
 app.use(cors());
+
+const config = {
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    server: process.env.DB_SERVER,
+    database: process.env.DB_DATABASE,
+    port: parseInt(process.env.DB_PORT, 10),
+    options: {
+        encrypt: false,
+        trustServerCertificate: true
+    }
+};
 
 app.post('/insertData', async (req, res) => {
     console.log('>>req.body',req.body);
@@ -122,11 +129,15 @@ app.get('/getMaterias', async (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`Servidor corriendo en http://localhost:${port}`);
+app.use((req,res)=>{
+  console.log("ruta no encontrada:", req.url);
+  res.status(404).json({message:'Ruta no encontrada'});
 });
 
-
+const port = 3000;
+app.listen(port, () =>{
+  console.log(`servidor corriendo en http://localhost:${port}`);
+});
 
 
 
