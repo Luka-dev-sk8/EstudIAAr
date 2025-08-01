@@ -1,6 +1,11 @@
-function btn(){
-    document.getElementById('content').classList.toggle('si_click');
-}
+const btn = document.querySelector('#boton');
+const contenido = document.querySelector('#content');
+
+btn.addEventListener('click', () => {
+    contenido.classList.add('no_click');
+
+});
+
 function coso(){
     var num = Math.floor(Math.random() * 6) + 1;
     console.log(num);
