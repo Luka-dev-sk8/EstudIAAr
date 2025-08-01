@@ -1,9 +1,12 @@
+//recibimos los datos atravez de los ID
+
 const correo = document.getElementById("email"),
     password = document.getElementById("password"),
     parrafo = document.getElementById("warning"),
     parrafo2 = document.getElementById("warning2"),
     Form = document.getElementById("container");
 
+// llamo a la consulta de la base de datos
     async function verificarData(correo_electronico, contraseña) {
         const payload = {correo_electronico, contraseña}
                try {
@@ -23,12 +26,11 @@ const correo = document.getElementById("email"),
             }
           }
 
+          
 Form.addEventListener("submit",async e =>{
     e.preventDefault();
   parrafo.textContent = '';
   parrafo2.textContent = '';
-  parrafo.classList.remove('er_email');
-  parrafo2.classList.remove('er_contra');
 
   let warning = '';
   let warning2 = '';
@@ -37,12 +39,19 @@ Form.addEventListener("submit",async e =>{
   const correoValue = correo.value.trim();
   const passwordValue = password.value.trim();
 
+  regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+  if(!regexEmail.test(correo.value)){
+  warning += "email no es valido"
+  entrar = true
+
+  }
     if(!correoValue){
         warning = "ingresa tu correo";
         entrar = true;
     }
 
-    if(!passwordValue){
+    if(password.value.lenngth <8){
         warning2 = "ingresa tu contraseña";
         entrar = true;
     }
@@ -56,7 +65,6 @@ Form.addEventListener("submit",async e =>{
     const result = await verificarData(correoValue, passwordValue);
     if (!result) {
         parrafo2.textContent = 'No se pudo verificar (error de conexión)';
-        parrafo2.classList.add('er_contra');
         return;
       }
 
@@ -64,11 +72,9 @@ Form.addEventListener("submit",async e =>{
 
     if (!correoExiste) {
         warning = "el correo no esta registrado";
-        parrafo.classList.add('er_email');
         entrar = true;
       } else if (!contraseñaExiste) {
         warning2 = "contraseña incorrecta";
-        parrafo2.classList.add('er_contra');
         entrar = true;
       }
     
@@ -79,6 +85,6 @@ Form.addEventListener("submit",async e =>{
         warning = ""
         warning2 = ""
     }else{
-        window.location.href = '/public/inicio.html';
+        window.location.href = '/inicio.html';
     }
 })

@@ -15,15 +15,19 @@
         <a href="inicio.html">sdlkn</a>
         <br>
         <form id="container" class="container">
-            <p>Ingrese Su Correo Electronico</p>
-            <input type="email" id="email" onkeyup="verificar()" name="correo_electronico">
-            
-            <p class="regis" id="warning"></p>
-            
-            <p class="contras">Ingrese Su Contraseña</p> 
-            <input id="password" class="contra" type="password" name="contraseña">
-            
-            <p class="contraseña" id="warning2"></p>
+        
+            <div class="Regis_Sesion">
+                <p>Ingrese Su Correo Electronico</p>
+                <input type="email" id="email" onkeyup="verificar()" name="correo_electronico">
+                <span> class="regis" id="warning"></span>
+            </div>
+
+           <div class="Regis_Sesion">
+                <p class="contras">Ingrese Su Contraseña</p> 
+                <input id="password" class="contra" type="password" name="contraseña">
+                <span> class="contraseña" id="warning2"</span>
+            </div> 
+
             <br>
                 <button id="boton" type="submit">Enviar</button>
             <br>
