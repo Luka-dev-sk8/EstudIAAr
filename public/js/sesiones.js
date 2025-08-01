@@ -39,13 +39,6 @@ Form.addEventListener("submit",async e =>{
   const correoValue = correo.value.trim();
   const passwordValue = password.value.trim();
 
-  regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-
-  if(!regexEmail.test(correo.value)){
-  warning += "email no es valido"
-  entrar = true
-
-  }
     if(!correoValue){
         warning = "ingresa tu correo";
         entrar = true;

@@ -5,7 +5,7 @@ btn.addEventListener('click', () => {
     contenido.classList.toggle('no_click');
 
     
-})
+});
 
 function coso(){
     var num = Math.floor(Math.random() * 6) + 1;
