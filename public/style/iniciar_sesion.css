@@ -89,31 +89,10 @@ a{
     border: 2px solid red;
 }
 
-.no_click, .contraseña, .usu, .regis{
-    display: none
-}
-.er_usu{
+.advertencia{
     display: flex;
-    align-items: center;
     justify-content: center;
     color: rgb(126, 2, 2);
-    position: absolute;
-    top: 33%;
-}
-.er_email{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgb(126, 2, 2);
-    position: absolute;
-    top: 50%;
-}
-.er_contra{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgb(126, 2, 2);
-    position: absolute;
-    top: 68%;
+    top: 50%; 
 }
     

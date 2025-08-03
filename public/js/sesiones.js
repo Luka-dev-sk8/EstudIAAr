@@ -29,12 +29,12 @@ const correo = document.getElementById("email"),
           
 Form.addEventListener("submit",async e =>{
     e.preventDefault();
-  parrafo.textContent = '';
-  parrafo2.textContent = '';
+
 
   let warning = '';
   let warning2 = '';
   let entrar = false;
+  let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
   const correoValue = correo.value.trim();
   const passwordValue = password.value.trim();
@@ -44,14 +44,14 @@ Form.addEventListener("submit",async e =>{
         entrar = true;
     }
 
-    if(password.value.lenngth <8){
-        warning2 = "ingresa tu contraseña";
-        entrar = true;
+    if (passwordValue <8) {
+      warning2 = "ingresa una contraseña valida";
+      entrar = true
     }
 
     if(entrar){
-        parrafo.innerHTML = warning;
-        parrafo.innerHTML = warning2
+        parrafo.innerHTML = warning
+        parrafo2.innerHTML = warning2
         return;
     }
 
@@ -78,6 +78,6 @@ Form.addEventListener("submit",async e =>{
         warning = ""
         warning2 = ""
     }else{
-        window.location.href = '/inicio.html';
+        window.location.href = 'inicio.html';
     }
 })
