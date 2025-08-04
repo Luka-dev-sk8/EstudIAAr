@@ -82,3 +82,14 @@ a, button{
     width: 100%;
     padding-bottom: 10px;
 }
+
+.tecnicatura-button{
+    width: 100%;
+    background-color: crimson;
+    margin-top: 5%;
+}
+
+.materia-button{
+    margin-top: 5%;
+    width: 100%;
+}

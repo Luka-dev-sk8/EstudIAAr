@@ -36,57 +36,72 @@ function coso(){
 
 
 async function obtenerMaterias() {
-    const urlParams = new URLSearchParams(window.location.search);
+    const urlParams = new URLSearchParams(window.location.search); // guardamos la url en una variable
+    //creamos variables, que tendran valores sacados de la url
     const año = urlParams.get('año');
     const tecnicatura = urlParams.get('tecnicatura');
+
+    //verificamos que si tengan valores las variables
     if (!año) {
         console.error('Falta el parámetro año en la URL');
         return;
     }
 
 try {
-        // Codificar parámetros para evitar problemas con caracteres especiales
+        // se codifica los parámetros para evitar problemas con caracteres especiales
         const response = await fetch(`http://localhost:3000/getMaterias?año=${encodeURIComponent(año)}&tecnicatura=${encodeURIComponent(tecnicatura || '')}`);
+       
+        //se verifica cualquier tipo de error
         if (!response.ok) {
             const errorData = await response.json();
             throw new Error(`Error al obtener datos: ${response.status} - ${errorData.message || 'Sin mensaje'}`);
         }
 
         const responseData = await response.json();
+
         let type, data;
-        // Manejar tanto arrays directos como objetos { type, data }
+        // manejamos 2 tipos de respuestas, por si responseData es un objeto o un array
         if (Array.isArray(responseData)) {
-            type = 'materias';
+            //si es un array, se le asigna un type
+            type = tecnicatura === '*' ? 'tecnicaturas' : 'materias';
             data = responseData;
         } else {
+            //si es un objeto, se le saca los valores directamente
             ({ type, data } = responseData);
         }
 
+        //en caso de que data no es un array, se muestra el error
         if (!Array.isArray(data)) {
             throw new Error('Los datos recibidos no son un array');
         }
 
+        //se busca a un contenedor por su id
         const container = document.getElementById('materias-container');
         if (!container) {
             console.error('No se encontró el elemento con ID "materias-container"');
             return;
         }
+        
         container.innerHTML = ''; // Limpiar el contenedor
 
-        // Procesar según el tipo de datos
+        // segun el type, se generan diferentes bottones
         if (type === 'tecnicaturas') {
             data.forEach(item => {
-                const button = document.createElement('button');
-                button.textContent = item.tecnicatura || 'Sin nombre';
+                const button = document.createElement('button'); //creamos una variable, que sean botones
+                button.textContent = item.tecnicatura || 'Sin nombre'; //le asignamos un contenido, basandonos en la consulta sql
+                button.className = 'tecnicatura-button'; //le asigno una clase para diferencialos y luka le ponga estilo css
+                //los botones nos envian a la misma pagina, pero esta vez rellenando el valor tecnicatura
                 button.addEventListener('click', () => {
                     window.location.href = `?año=${encodeURIComponent(año)}&tecnicatura=${encodeURIComponent(item.tecnicatura)}`;
                 });
                 container.appendChild(button);
             });
-        } else if (type === 'materias') {
+        } else if (type === 'materias')  //en caso de que hablamos de materias, creamos otros tipos de botones
+            {
             data.forEach(item => {
-                const button = document.createElement('button');
-                button.textContent = item.materia || 'Sin nombre';
+                const button = document.createElement('button'); // creamos una variable que sean botones
+                button.textContent = item.materia || 'Sin nombre'; // le asginamos un contenido
+                button.className = 'materia-button'; // una clase para diferenciar
                 container.appendChild(button);
             });
         } else {
