@@ -111,24 +111,51 @@ app.post('/verificarData', async (req, res) => {
 
 
 app.get('/getMaterias', async (req, res) => {
-    const año = req.query.año;
+  const { año, tecnicatura } = req.query;
+  console.log('Parámetros recibidos:', { año, tecnicatura })
     if (!año) {
         return res.status(400).json({ message: 'Falta el parámetro año' });
     }
     try {
         const pool = await sql.connect(config);
-        const result = await pool.request()
-            .input('año', sql.VarChar, año)
-            .query('SELECT materia FROM cronograma_estudio WHERE año = @año');
-        if (result.recordset.length === 0) {
-            return res.status(404).json({ message: 'No se encontraron materias para este año' });
-        }
-        res.status(200).json(result.recordset);
-    } catch (err) {
+        let result;
+
+        if(tecnicatura === '*'){
+            result = await pool.request()
+            .input('año', sql.VarChar,año)
+            .query('SELECT DISTINCT tecnicatura FROM cronograma_estudio WHERE año = @año')
+
+            if (result.recordset.length === 0) {
+        return res.status(404).json({ message: `No se encontraron tecnicaturas para el año ${año}` });
+      }
+
+      
+      // Devolver tecnicaturas con una clave específica para el frontend
+      res.status(200).json({ type: 'tecnicaturas', data: result.recordset });
+        }else{
+          
+          if(!tecnicatura){
+            return res.status(400).json({message: 'Falta el parametro tecnicatura'});
+          }
+
+            result = await pool.request()
+              .input('año', sql.VarChar, año)
+              .input('tecnicatura',sql.VarChar, tecnicatura)
+              .query('SELECT materia FROM cronograma_estudio WHERE año = @año AND tecnicatura = @tecnicatura');
+          if (result.recordset.length === 0) {
+              return res.status(404).json({ message: 'No se encontraron materias para este año' });
+          }
+          
+          res.status(200).json({ type: 'materias', data: result.recordset });
+
+        }}catch (err) {
         console.error('Error obteniendo materias:', err);
         res.status(500).json({ message: 'Error al obtener materias' });
     }
 });
+
+app.get('/favicon.ico', (req, res) => res.status(204).end());
+app.get('/.well-known/appspecific/com.chrome.devtools.json', (req, res) => res.status(204).end());
 
 app.use((req,res)=>{
   console.log("ruta no encontrada:", req.url);
