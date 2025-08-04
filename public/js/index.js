@@ -56,7 +56,7 @@ try {
             const errorData = await response.json();
             throw new Error(`Error al obtener datos: ${response.status} - ${errorData.message || 'Sin mensaje'}`);
         }
-
+        //se llama a el objeto json
         const responseData = await response.json();
 
         let type, data;
@@ -105,9 +105,11 @@ try {
                 container.appendChild(button);
             });
         } else {
+            //en caso de no ser uno de los 2 valores, se emite el error
             throw new Error(`Tipo de datos desconocido: ${type}`);
         }
     } catch (error) {
+        //errores con la conexion, se lo comunica a la pagina
         console.error('Error:', error);
         const container = document.getElementById('materias-container');
         if (container) {
