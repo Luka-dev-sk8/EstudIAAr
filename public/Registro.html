@@ -12,21 +12,25 @@
             <h1 id="titulo">Registrese</h1>
         </header>
 
-        <form id="container2"  class="container" >
-            <p>Ingrese un nombre</p>
+        <form id="registro"  class="container" >
 
-            <input type="text" id="nombre" name="nombre">
-            <p id="warning" class="usu">el nombre no es valido</p>
+            <div class="Regis_Sesion">
+                <p>Ingrese un nombre</p>
+                <input type="text" id="nombre" name="nombre">
+                <span id="warning" class="advertencia"></span>
+            </div>
 
-            <p>Ingrese Un Correo Electronico</p>
-             
-            <input id="email" type="email" name="correo_electronico"  onkeyup="verificar()">
-            <p id="warning2" class="regis">el email no es valido</p>
+            <div class="Regis_Sesion">
+                <p>Ingrese Un Correo Electronico</p> 
+                <input id="email" type="email" name="correo_electronico"  onkeyup="verificar()">
+                <span id="warning2" class="advertencia"></span>
+            </div>
             
-            <p>Ingrese Una Nueva Contraseña</p> 
-
-            <input id="password" type="password" name="contraseña">
-            <p id="warning3" class="contraseña">la Contraseña no es valido</p>
+            <div class="Regis_Sesion" >
+                <p>Ingrese Una Nueva Contraseña</p> 
+                <input id="password" type="password" name="contraseña">
+                <span id="warning3" class="advertencia"></span>
+            </div>
             <br>
             <button  id="boton" type="submit" >Enviar</button>
             <br>

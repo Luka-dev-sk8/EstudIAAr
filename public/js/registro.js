@@ -1,7 +1,7 @@
 const nombre = document.getElementById("nombre")
 const correo = document.getElementById("email")
 const password = document.getElementById("password")
-const Form = document.getElementById("container2")
+const Form = document.getElementById("registro")
 const parrafo = document.getElementById("warning")
 const parrafo2 = document.getElementById("warning2")
 const parrafo3 = document.getElementById("warning3")
@@ -32,7 +32,6 @@ async function enviarDatos() {
             return true;
         } else if (response.status === 400) {
             parrafo2.innerHTML = result.message;
-            document.getElementById('warning2').classList.add('er_email');
             return false;
         } else {
             console.log('Error al insertar datos');
@@ -56,20 +55,18 @@ Form.addEventListener("submit",async e => {
     let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     
     if(nombre.value.length <6){
-        warning += 'el nombre no es valido <br>'
+        warning += 'el nombre no es valido '
         entrar = true
-        document.getElementById('warning').classList.add('er_usu')
     }
     if(!regexEmail.test(correo.value)){
-        warning2 += "email no es valido <br>"
+        warning2 += "email no es valido "
         entrar = true
-        document.getElementById('warning2').classList.add('er_email')
     }
 
     if (password.value.length < 8){
-        warning3 += "contraseña no es valido <br>"
+        warning3 += "contraseña no es valido "
         entrar = true
-        document.getElementById('warning3').classList.add('er_contra')
+        
 
     }
 
@@ -84,7 +81,7 @@ Form.addEventListener("submit",async e => {
          } else { 
              const enviarDatosResult = await enviarDatos();
               if (enviarDatosResult) {
-                  window.location.href = '/public/inicio.html';
+                  window.location.href = 'inicio.html';
                  } else {
                      console.log('Error al insertar datos.');
                      } }
