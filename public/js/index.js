@@ -3,8 +3,6 @@ const contenido = document.querySelector('#content');
 
 btn.addEventListener('click', () => {
     contenido.classList.toggle('no_click');
-
-    
 });
 
 function coso(){
