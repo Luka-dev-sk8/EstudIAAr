@@ -38,7 +38,7 @@ main{
     align-items: center;
     position: absolute;
     justify-content: center;
-    gap: 10px;
+    gap: 2%;
     flex-wrap: wrap;
 }
 a, button{
@@ -86,7 +86,7 @@ a:hover, button:hover{
 
 .si_click{
     height: 78%;
-    width: 30%;
+    width: 32%;
     position: absolute;
     left:0%;
     display: flex;

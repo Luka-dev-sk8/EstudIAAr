@@ -31,6 +31,7 @@
         <div id="webchat-container" style="height: 100%; width: 100%;">
             <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>   
             <script>
+                document.cookie = "bpUserId=2931810; SameSite=None; Secure; path=/";
                 window.botpress.on("webchat:ready", (error) => {
                     window.botpress.open();
                 });
