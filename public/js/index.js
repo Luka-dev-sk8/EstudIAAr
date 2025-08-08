@@ -1,5 +1,6 @@
 const btn = document.querySelector('#boton');
 const contenido = document.querySelector('#content');
+const titulo = document.getElementById('titulo')
 
 btn.addEventListener('click', () => {
     contenido.classList.toggle('no_click');
@@ -40,7 +41,7 @@ async function obtenerMaterias() {
     //creamos variables, que tendran valores sacados de la url
     const año = urlParams.get('año');
     const tecnicatura = urlParams.get('tecnicatura');
-
+    titulo.innerHTML = año + " año "
     //verificamos que si tengan valores las variables
     if (!año) {
         console.error('Falta el parámetro año en la URL');
@@ -103,6 +104,7 @@ try {
                 button.textContent = item.materia || 'Sin nombre'; // le asginamos un contenido
                 button.className = 'materia-button'; // una clase para diferenciar
                 container.appendChild(button);
+                titulo.innerHTML = año + " año " + "-" + tecnicatura + "-"; //ponemos un titulo difenrente en cada caso
             });
         } else {
             //en caso de no ser uno de los 2 valores, se emite el error
