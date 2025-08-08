@@ -1,15 +1,17 @@
 h1{
-    background-color: beige;
-    height: 100px;
-    width: 50%;
-    border-radius: 30px;
     color: rgb(16, 6, 49);
-    font-size: 200%;
+    font-size: 200%; 
+    text-align: center;   
+}
+header{
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    background-color: beige;
+    border-radius: 30px;
     
+    min-width: 60vw;
+    max-width: 70vw;
 }
 body{
     display: flex;
