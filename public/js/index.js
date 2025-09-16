@@ -1,6 +1,7 @@
 const btn = document.querySelector('#boton');
 const contenido = document.querySelector('#content');
-const titulo = document.getElementById('titulo')
+const titulo = document.getElementById('titulo');
+const tituloMateria = document.getElementById('materia-titulo');
 
 btn.addEventListener('click', () => {
     contenido.classList.toggle('no_click');
@@ -35,6 +36,7 @@ function coso(){
 
 
 async function obtenerMaterias() {
+    tituloMateria.innerHTML = "";
     const urlParams = new URLSearchParams(window.location.search); // guardamos la url en una variable
     //creamos variables, que tendran valores sacados de la url
     const año = urlParams.get('año');
@@ -101,6 +103,32 @@ try {
                 const button = document.createElement('button'); // creamos una variable que sean botones
                 button.textContent = item.materia || 'Sin nombre'; // le asginamos un contenido
                 button.className = 'materia-button'; // una clase para diferenciar
+                button.addEventListener('click', async () => {
+                    if (tituloMateria) {
+                        tituloMateria.innerHTML = item.materia;
+                    }
+                    try {
+                        const response = await fetch(`http://localhost:3000/getInformacion?año=${encodeURIComponent(año)}&tecnicatura=${encodeURIComponent(tecnicatura)}&materia=${encodeURIComponent(item.materia)}`);
+                        if (!response.ok) {
+                            const errorData = await response.json();
+                            throw new Error(`Error al obtener información: ${response.status} - ${errorData.message || 'Sin mensaje'}`);
+                        }
+                        const { informacion } = await response.json();
+                        const infoContainer = document.getElementById('materias-info');
+                        if (infoContainer) {
+                            infoContainer.innerHTML = informacion || 'No hay información disponible';
+                        } else {
+                            console.error('No se encontró el elemento con ID "materias-info"');
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                        const infoContainer = document.getElementById('materias-info');
+                        if (infoContainer) {
+                            infoContainer.innerHTML = 'No se pudo cargar la información.';
+                        }
+                        swal('Error', 'No se pudo cargar la información de la materia.', 'error');
+                    }
+                });
                 container.appendChild(button);
                 titulo.innerHTML = año + " año " + "-" + tecnicatura + "-"; //ponemos un titulo difenrente en cada caso
             });

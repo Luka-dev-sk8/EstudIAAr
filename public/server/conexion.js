@@ -167,6 +167,28 @@ app.get('/getMaterias', async (req, res) => {
     }
 });
 
+
+app.get('/getinformacion', async(req, res)=>{
+  const{año,tecnicatura,materia} = req.query;
+  console.log('parametros recibidos para información:',{año, tecnicatura, materia});
+
+  try{
+    const pool = await sql.connect(config);
+    const result = await pool.request()
+      .input('año',sql.VarChar,año)
+      .input('tecnicatura', sql.VarChar, tecnicatura)
+      .input('materia',sql.VarChar, materia)
+      .query('SELECT informacion FROM cronograma_estudio WHERE año = @año AND tecnicatura = @tecnicatura AND materia = @materia');
+
+      if(result.recordset.length === 0){
+        return res.status(404).json({message: 'No se encontró información para esta materia'});
+      }
+      res.status(200).json({informacion : result.recordset[0].informacion});
+  }catch(err){
+  console.error('Error obteniendo información:', err);
+  res.status(500).json ({message: 'Error al obtener información'});
+  }
+})
 app.get('/favicon.ico', (req, res) => res.status(204).end());
 app.get('/.well-known/appspecific/com.chrome.devtools.json', (req, res) => res.status(204).end());
 
