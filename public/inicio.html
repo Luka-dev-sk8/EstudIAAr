@@ -6,14 +6,16 @@
     <title>Inicio</title>
     <link rel="stylesheet" href="style/inicio_pagina.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="js/index.js" defer></script>    
-    <script defer src="https://files.bpcontent.cloud/2024/11/11/19/20241111191001-PNEKWHMZ.js" defer></script>
+    <script src="js/index.js" defer></script>
+    <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2024/11/11/19/20241111191001-PNEKWHMZ.js" defer></script>
+    
     
 </head>
 <body>
     <header>
-        <img id="logo" src="imagenes/logo.png" alt="">
-        <h1>EstudIA</h1>
+        
+        <h1>EstudIAAR</h1>
         
     </header>
     <div id="content" class="si_click">
@@ -27,38 +29,7 @@
         </button>
     
         
-    <main>
-        <div id="webchat-container" style="height: 100%; width: 100%;">
-            <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>   
-            <script>
-                
-                document.cookie = `bpUserId=2931810; SameSite=None; Secure; path=/`;
-            
-                window.botpress.on("webchat:ready", (error) => {
-                    window.botpress.open();
-                });
-            </script>
-    <style>
-        .bpFab {
-            display: none;
-        }
-        
-        .bpWebchat {
-            position: absolute !important;
-            top: 14% !important;
-            right: 5% !important;
-            width:57% !important;
-            height:70% !important;
-
-        } 
-        .bpHeaderContentActionsContainer :nth-child(2) {
-            display: none;
-        }
-    </style>
-
-</div>
-
-</main>
+<main id="bp-embedded-webchat"></main>
 
 <section id="grados">
     <a  href="../plan_de_estudio/1año.html?año=1er&tecnicatura=ciclo Básico">1°año</a>
