@@ -1,36 +1,38 @@
 const btn = document.querySelector('#boton');
 const contenido = document.querySelector('#content');
 const titulo = document.getElementById('titulo')
+const no_click = document.querySelector('si_click')
 
 btn.addEventListener('click', () => {
-    contenido.classList.toggle('no_click');
+    contenido.classList.toggle('si_click');
+    
 });
 
 function coso(){
-    var num = Math.floor(Math.random() * 6) + 1;
-    console.log(num);
+var num = Math.floor(Math.random() * 6) + 1;
+console.log(num);
     if(num===1){
         swal('Tomate Un Descanso', 'Tomate un descanso como de 5-15 minutos.');
     }else{
-        if(num===2){
-            swal('Recuerde Que En La Vida Todo Se Puede.','');
-        }else{       
-            if(num===3){
-                swal('Tomate El Tiempo Para Reflexionar.','');
-            
-            }
-            if(num===4){
-                swal('perdiste en el momento que te rendiste.','');
-            
-            }if(num===5){
-                swal('El exito es la suma de pequeños esfuerzos que se repiten.','');
-            
-            }else{
-                swal('Tu Puedes Yo Confio En Ti.','');
-                
-            }
-        }
+    if(num===2){
+        swal('Recuerde Que En La Vida Todo Se Puede.','');
+    }else{       
+    if(num===3){
+        swal('Tomate El Tiempo Para Reflexionar.','');
     }
+    if(num===4){
+        swal('perdiste en el momento que te rendiste.','');
+    
+    }if(num===5){
+        swal('El exito es la suma de pequeños esfuerzos que se repiten.','');
+    
+    }else{
+        swal('Tu Puedes Yo Confio En Ti.','');
+        
+
+    }
+    }
+}
 }
 
 

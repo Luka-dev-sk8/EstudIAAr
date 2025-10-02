@@ -1,48 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
-    <link rel="stylesheet" href="style/inicio_pagina.css">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="js/index.js" defer></script>
-    <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
-    <script src="https://files.bpcontent.cloud/2024/11/11/19/20241111191001-PNEKWHMZ.js" defer></script>
-    
-    
-</head>
-<body>
-    <header>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Inicio</title>
+        <link rel="stylesheet" href="style/inicio_pagina.css">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="js/index.js" defer></script>
+        <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
+        <script src="https://files.bpcontent.cloud/2024/11/11/19/20241111191001-PNEKWHMZ.js" defer></script>
         
-        <h1>EstudIAAR</h1>
-        
-    </header>
-    <div id="content" class="si_click">
-        <a class="link" href="https://open.spotify.com/intl-es">Musica</a>
-        
-        <a class="link" href="InicioSe.html">Inicio de Sesion</a>
-        <a class="link" href="">Sobre Nosotros</a>
-    </div>
-    <button id="boton">
+    </head>
+    <body>
+        <header>
+            
+            <h1>EstudIA<span style="color: cadetblue;">AR</span></h1>
+            
+        </header>
+        <div id="content" class="no_click">
+            <br>
+            <a class="link" href="https://open.spotify.com/intl-es">Musica</a>
+            <a class="link" href="InicioSe.html">Inicio de Sesion</a>
+            <a class="link" href="">Sobre Nosotros</a>
+        </div>
+        <button id="boton">
             =
         </button>
-    
         
-<main id="bp-embedded-webchat"></main>
+        
+<main id="bot_container" style="width: 100%; height: 73vh;">
 
-<section id="grados">
-    <a  href="../plan_de_estudio/1año.html?año=1er&tecnicatura=ciclo Básico">1°año</a>
-    <a  href="../plan_de_estudio/2año.html?año=2do&tecnicatura=ciclo Básico">2°año</a>
-    <a  href="../plan_de_estudio/3año.html?año=3ro&tecnicatura=*" >3°año</a>
-    <a  href="../plan_de_estudio/4año.html?año=4to&tecnicatura=*" >4°año</a>
-    <a  href="../plan_de_estudio/5año.html?año=5to&tecnicatura=*" >5°año</a>
-    <a  href="../plan_de_estudio/6año.html?año=6to&tecnicatura=*" >6°año</a>
-    <button onclick="coso()">Consejo</button>
-</section>
+              
+    <script>
+        window.botpress.on("webchat:ready", (error) => {
+        window.botpress.open();
+        });
 
-<script src="js/script.js" defer></script>
+    </script>
+    <style>
+    #bot_container{
+        position: static !important;
+        margin-left: 15%;
+        height: 74vh !important;
+        width: 70% !important;
+        
+    }
 
-    
-</body>
-</html>
+    .bpWebchat{
+        position: static !important;
+        height: 74vh !important;
+        
+    }    
+    .bpFab {
+        display: none;
+    }    
+    </style>
+
+
+</main>
+        
+        <section id="grados">
+            <a  href="../plan_de_estudio/1año.html?año=1er&tecnicatura=ciclo Básico">1°año</a>
+            <a  href="../plan_de_estudio/2año.html?año=2do&tecnicatura=ciclo Básico">2°año</a>
+            <a  href="../plan_de_estudio/3año.html?año=3ro&tecnicatura=*" >3°año</a>
+            <a  href="../plan_de_estudio/4año.html?año=4to&tecnicatura=*" >4°año</a>
+            <a  href="../plan_de_estudio/5año.html?año=5to&tecnicatura=*" >5°año</a>
+            <a  href="../plan_de_estudio/6año.html?año=6to&tecnicatura=*" >6°año</a>
+            <button onclick="coso()">Consejo</button>
+        </section>
+        
+        <script src="js/script.js" defer></script>
+        
+        
+    </body>
+    </html>
