@@ -4,9 +4,35 @@ const titulo = document.getElementById('titulo')
 const no_click = document.querySelector('si_click')
 
 btn.addEventListener('click', () => {
-    contenido.classList.toggle('si_click');
-    
+    contenido.classList.toggle('si_click'); 
 });
+
+
+const btn_img = document.querySelector('.img');
+
+const header = document.querySelector('.normal');
+const grados = document.querySelector('.grados');
+const btn_h = document.querySelector('.g');
+const mariobros = document.querySelector('.mariobros')
+const body = document.querySelector('.body')
+
+btn_img.addEventListener('click', () => {
+    
+    header.classList.toggle('mario');
+    grados.classList.toggle('mario');
+    btn_h.classList.toggle('mario');
+    mariobros.classList.toggle('mario');
+    body.classList.toggle('mario');
+});
+
+
+
+
+
+
+
+
+
 
 function coso(){
 var num = Math.floor(Math.random() * 6) + 1;
