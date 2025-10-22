@@ -3,29 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>1er Año</title>
     <link rel="stylesheet" href="../public/style/1er_style.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
     <header>
+        <button id="boton_desplegable">=</button>
+        
         <h1 id="titulo"></h1>
     </header>
+    <section class="EC" id="espacio_curricular">
+        <div id="materias-container">
+            
+        </div>
+    </section>
     
     
     <main>
         <article>
             <h3 id="materia-titulo"></h3>
-            <div id="materias-info" >
-                <----  elija la materia
+            <div id="materias-info">
+                <----  Elija la Materia que Desea Ver
             </div>
 
         </article>
-            <section id="espacio_curricular">
-                <div id="materias-container">
-                    
-                </div>
-            </section>
     </main>
 
     <section id="grados">
@@ -35,11 +37,22 @@
     <a href="../plan_de_estudio/4año.html?año=4to&tecnicatura=*" >4°año</a>
     <a href="../plan_de_estudio/5año.html?año=5to&tecnicatura=*" >5°año</a>
     <a href="../plan_de_estudio/6año.html?año=6to&tecnicatura=*" >6°año</a>
-        <button onclick="coso()">Consejo</button>
+        
     </section>
     <script src="/public/js/index.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => obtenerMaterias());
+    </script>
+
+<script>
+        //toggle de funcion de contenedor en materias
+const btn_año1 = document.querySelector('#boton_desplegable');
+const contenidos = document.querySelector('.EC');
+
+btn_año1.addEventListener('click', () =>{
+    contenidos.classList.toggle('show')
+});
+
     </script>
 </body>
 </html>
