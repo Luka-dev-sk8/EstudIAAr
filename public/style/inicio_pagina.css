@@ -90,7 +90,7 @@ main{
     background-color: unset !important;
     
 }
-.g{
+a, button{
     display: flex;
     align-items: center;
     justify-content: center;

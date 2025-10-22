@@ -1,3 +1,4 @@
+//toggle a un contenedor
 const btn = document.querySelector('#boton');
 const contenido = document.querySelector('#content');
 const titulo = document.getElementById('titulo');
@@ -9,12 +10,12 @@ btn.addEventListener('click', () => {
     contenido.classList.toggle('si_click'); 
 });
 
-
+//toggle tematica de mario bros
 const btn_img = document.querySelector('.img');
 
 const header = document.querySelector('.normal');
 const grados = document.querySelector('.grados');
-const btn_h = document.querySelector('.g');
+
 const mariobros = document.querySelector('.mariobros')
 const body = document.querySelector('.body')
 
@@ -22,48 +23,13 @@ btn_img.addEventListener('click', () => {
     
     header.classList.toggle('mario');
     grados.classList.toggle('mario');
-    btn_h.classList.toggle('mario');
+    
     mariobros.classList.toggle('mario');
     body.classList.toggle('mario');
 });
 
 
-
-
-
-
-
-
-
-
-function coso(){
-var num = Math.floor(Math.random() * 6) + 1;
-console.log(num);
-    if(num===1){
-        swal('Tomate Un Descanso', 'Tomate un descanso como de 5-15 minutos.');
-    }else{
-    if(num===2){
-        swal('Recuerde Que En La Vida Todo Se Puede.','');
-    }else{       
-    if(num===3){
-        swal('Tomate El Tiempo Para Reflexionar.','');
-    }
-    if(num===4){
-        swal('perdiste en el momento que te rendiste.','');
-    
-    }if(num===5){
-        swal('El exito es la suma de pequeños esfuerzos que se repiten.','');
-    
-    }else{
-        swal('Tu Puedes Yo Confio En Ti.','');
-        
-
-    }
-    }
-}
-}
-
-
+//obtencion de materias
 async function obtenerMaterias() {
     tituloMateria.innerHTML = "";
     const urlParams = new URLSearchParams(window.location.search); // guardamos la url en una variable
