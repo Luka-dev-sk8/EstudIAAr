@@ -2,11 +2,7 @@
     background-color: #DCD7C9;
     color: rgb(235, 230, 225);
     margin: 0;
-    background-image: url(../imagenes/fondo.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-
+    
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .body.mario{
@@ -15,6 +11,7 @@
     background-position: baseline;
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    transition: all 0.8s;
 }
 .normal{
     background-color: #2C3930;
@@ -23,12 +20,13 @@
     justify-content: center;
     gap: 20px;
     width: 100%;
+    transition: all 0.8s;
 }
 .normal.mario{
-    background-color: rgb(187, 40, 40);    
+    background-color: rgb(187, 40, 40);
+    transition: all 0.8s;
 }
 #logo{
-    
     height: 8vh;
     border-radius: 30px;
 }
@@ -60,10 +58,11 @@ img{
     background-position: center;
     background-repeat: repeat;
     background-size: cover;
-
+    transition: all 0.8s;
 }
 .mariobros.mario{
     background-image: url(../imagenes/marios.png);
+    transition: all 0.3s;
 }
 
 .img:hover{
@@ -85,10 +84,11 @@ main{
     justify-content: center;
     gap: 2%;
     flex-wrap: wrap;
+    transition: all 0.8s;
 }
 .grados.mario{
     background-color: unset !important;
-    
+    transition: all 0.8s;
 }
 a, button{
     display: flex;
@@ -146,9 +146,17 @@ a:hover, button:hover{
     color: rgb(206, 205, 205);
     box-shadow: 0px 12px 10px 0px rgb(204, 204, 206);
     border-radius: 0px 10px 10px 0;
+    animation: barra 0.3s linear;
 }
-
-
+@keyframes barra {
+    from{
+        transform: translateX(260px);
+    }
+    to{
+        transform: translateX(0px);
+    }
+    
+}
 div{
     display: none;
 }

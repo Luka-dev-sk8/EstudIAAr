@@ -3,12 +3,13 @@ const btn = document.querySelector('#boton');
 const contenido = document.querySelector('#content');
 const titulo = document.getElementById('titulo');
 const tituloMateria = document.getElementById('materia-titulo');
-const no_click = document.querySelector('si_click')
 
 
+    
 btn.addEventListener('click', () => {
     contenido.classList.toggle('si_click'); 
 });
+
 
 //toggle tematica de mario bros
 const btn_img = document.querySelector('.img');
