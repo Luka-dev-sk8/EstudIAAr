@@ -3,6 +3,7 @@
     color: rgb(235, 230, 225);
     margin: 0;
     display: flex;
+    height: 100vh;
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
