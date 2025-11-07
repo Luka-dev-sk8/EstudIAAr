@@ -11,20 +11,20 @@
     <header>
         <h1 id="titulo"></h1>
     </header>
-    
+    <section class="EC" id="espacio_curricular">
+            <div id="materias-container"></div>
+    </section>
     
     <main>
         <article>
-            <h3 id="materia-titulo">elija la meteria</h3>
+            <h3 id="materia-titulo">Elija la materia</h3>
             <div id="materias-info" >
-                <----  seleccione a su preferencia
+                <----  Seleccione a su preferencia
                 
             </div>
         </article>
         
-            <section id="espacio_curricular">
-                <div id="materias-container"></div>
-            </section>
+            
         
     </main>
 
@@ -36,10 +36,19 @@
     <a href="../plan_de_estudio/5año.html?año=5to&tecnicatura=*" >5°año</a>
     <a href="../plan_de_estudio/6año.html?año=6to&tecnicatura=*" >6°año</a>
     </section>
-
     <script src="/public/js/index.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => obtenerMaterias());
+    </script>
+    <script>
+    //toggle de funcion de contenedor en materias
+const btn_año1 = document.querySelector('#boton_desplegable');
+const contenidos = document.querySelector('.EC');
+
+btn_año1.addEventListener('click', () =>{
+    contenidos.classList.toggle('show')
+});
+
     </script>
 </body>
 </html>

@@ -11,7 +11,9 @@
     <header>
         <h1 id="titulo"></h1>
     </header>
-    
+    <section id="espacio_curricular">
+                <div id="materias-container"></div>
+    </section>
     
     <main>
         <article>
@@ -22,9 +24,7 @@
             </div>
         </article>
         
-            <section id="espacio_curricular">
-                <div id="materias-container"></div>
-            </section>
+            
         
     </main>
     <section id="grados">
@@ -40,6 +40,16 @@
     <script src="/public/js/index.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => obtenerMaterias());
+    </script>
+    <script>
+    //toggle de funcion de contenedor en materias
+const btn_año1 = document.querySelector('#boton_desplegable');
+const contenidos = document.querySelector('.EC');
+
+btn_año1.addEventListener('click', () =>{
+    contenidos.classList.toggle('show')
+});
+
     </script>
 </body>
 </html>
